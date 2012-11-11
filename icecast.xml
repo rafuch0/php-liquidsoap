@@ -1,0 +1,66 @@
+<icecast>
+    <limits>
+        <clients>100</clients>
+        <sources>2</sources>
+        <threadpool>5</threadpool>
+        <queue-size>524288</queue-size>
+        <client-timeout>30</client-timeout>
+        <header-timeout>15</header-timeout>
+        <source-timeout>10</source-timeout>
+        <burst-on-connect>1</burst-on-connect>
+        <burst-size>65535</burst-size>
+    </limits>
+
+    <authentication>
+        <source-password>password</source-password>
+        <relay-password>password</relay-password>
+
+        <admin-user>admin</admin-user>
+        <admin-password>adminpassword</admin-password>
+    </authentication>
+
+    <hostname>localhost</hostname>
+
+    <relays-on-demand>1</relays-on-demand>
+    <relay>
+	<username>relay</username>
+        <server>polledliverelay.com</server>
+        <port>8080</port>
+        <mount>/live</mount>
+        <relay-shoutcast-metadata>1</relay-shoutcast-metadata>
+    </relay>
+
+    <mount>
+        <username>source</username>
+	<mount-name>/ao</mount-name>
+    </mount>
+
+    <listen-socket>
+        <port>8080</port>
+
+        <bind-address>66.77.88.99</bind-address>
+    </listen-socket>
+
+    <fileserve>0</fileserve>
+
+    <paths>
+        <basedir>/usr/share/icecast2</basedir>
+
+        <logdir>/var/log/icecast2</logdir>
+        <webroot>/usr/share/icecast2/web</webroot>
+        <adminroot>/usr/share/icecast2/admin</adminroot>
+        <alias source="/" dest="/status.xsl"/>
+    </paths>
+
+    <logging>
+        <accesslog>access.log</accesslog>
+        <errorlog>error.log</errorlog>
+      	<loglevel>3</loglevel>
+      	<logsize>10000</logsize>
+        <logarchive>0</logarchive>
+    </logging>
+
+    <security>
+        <chroot>0</chroot>
+    </security>
+</icecast>
